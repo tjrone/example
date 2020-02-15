@@ -36,3 +36,7 @@ data:
       bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
       kubernetes_sd_configs:
       - role: pod
+    - job_name: 'example-metrics'
+      - job_name: 'prometheus'
+        static_configs:
+        - targets: ['10.98.155.3:80']
