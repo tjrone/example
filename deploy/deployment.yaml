@@ -15,5 +15,6 @@ spec:
       containers:
         - name: back-end
           image: example
+          imagePullPolicy: Never
           ports:
             - containerPort: 9090
