@@ -2,7 +2,7 @@
 
 【注】本示例使用Golang语言，演示本实验的基本代码逻辑
 
-实验共分为6个小节，参见：https://www.yuque.com/sysu_ndc_lab/la9qa7/io78ay
+实验共分为6个小节，参见：https://www.yuque.com/docs/share/9b25593b-2979-452a-a723-b04cf00d57c4?#
 ````
 ├── Dockerfile                   制作镜像所使用
 ├── README
