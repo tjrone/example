@@ -19,13 +19,17 @@ func index(w http.ResponseWriter, r *http.Request) {
 	num:=os.Getenv("Num")
 	if num==""{
 		Fibonacci(10)
-		_,error:=w.Write([]byte("there is no env Num. Computation successed\n"))
-		log.Println("err:"+error.Error()+" No\n")
+		_,err:=w.Write([]byte("there is no env Num. Computation successed\n"))
+		if err!=nil{
+			log.Println("err:"+err.Error()+" No\n")
+		}
 	}else{
 		numInt,_:=strconv.Atoi(num)
 		Fibonacci(numInt)
-		_,error:=w.Write([]byte("there is env Num. Computation successed\n"))
-		log.Println("err:"+error.Error()+" Yes\n")
+		_,err:=w.Write([]byte("there is env Num. Computation successed\n"))
+		if err!=nil{
+			log.Println("err:"+err.Error()+" Yes\n")
+		}
 	}
 }
 
