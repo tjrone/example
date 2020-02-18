@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"log"
 	"net/http"
 	"os"
@@ -10,9 +11,9 @@ import (
 
 func main(){
 	http.HandleFunc("/abc", index)
-	metrics.Initialize(":5565")
+	http.Handle("/metrics", promhttp.Handler())
 	metrics.Register()
-	err := http.ListenAndServe(":9090", nil) // 设置监听的端口
+	err := http.ListenAndServe(":5565", nil) // 设置监听的端口
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}

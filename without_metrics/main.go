@@ -8,14 +8,14 @@ import (
 )
 
 func main(){
-	err := http.ListenAndServe(":9090", nil) // 设置监听的端口
+	err := http.ListenAndServe(":5565", nil) // 设置监听的端口
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}
 }
 
-func index(w http.ResponseWriter, r *http.Request) {
-	num:=os.Getenv("Num")
+	func index(w http.ResponseWriter, r *http.Request) {
+		num:=os.Getenv("Num")
 	if num==""{
 		Fibonacci(10)
 	}else{

@@ -17,4 +17,4 @@ spec:
           image: example
           imagePullPolicy: Never
           ports:
-            - containerPort: 9090
+            - containerPort: 5565

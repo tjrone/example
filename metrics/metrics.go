@@ -1,10 +1,7 @@
 package metrics
 
 import (
-	"log"
-	"net/http"
 	"github.com/prometheus/client_golang/prometheus"
-	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"time"
 )
 
@@ -37,14 +34,6 @@ func Register() {
 	prometheus.MustRegister(requestLatency)
 }
 
-// Initialize sets up Prometheus to expose metrics on the given address
-func Initialize(address string) {
-	go func() {
-		http.Handle("/metrics", promhttp.Handler())
-		err := http.ListenAndServe(address, nil)
-		log.Fatalf("Failed to start metrics: %v", err)
-	}()
-}
 
 // NewAdmissionLatency provides a timer for admission latency; call Observe() on it to measure
 func NewAdmissionLatency() *RequestLatency {
